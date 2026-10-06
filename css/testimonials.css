@@ -1,0 +1,303 @@
+/* ==========================================================================
+   Testimonial Section Component Styles (BEM)
+   ========================================================================== */
+
+.c-testimonials {
+  padding: 80px 0 100px 0;
+  background-color: var(--color-white);
+  overflow: visible;
+}
+
+.c-testimonial-header__container {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 52px auto;
+}
+
+.c-testimonials-header__title {
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #071C1F;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.c-testimonials-header__desc {
+  width: 431px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  color: #757474;
+  line-height: 1.7;
+}
+
+
+.c-testimonials__wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: center;
+  gap: 52px;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 130px;
+}
+
+/* Left Photo Frame with Orange Offset and Grey Box */
+.c-testimonials__media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.c-testimonial-photo {
+  position: relative;
+  width: 320px;
+  height: 380px;
+  margin-bottom: 24px;
+}
+
+.c-testimonial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transform-origin: center center;
+  will-change: transform, z-index, box-shadow;
+}
+
+.c-testimonial-photo__bg-offset,
+.c-testimonial-card--orange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 12px;
+  transform: translate(-20px, 24px);
+  z-index: 1;
+}
+
+.c-testimonial-photo__img-box,
+.c-testimonial-card--grey {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #C4C4C4;
+  transform: translate(0, 0);
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Card swap keyframes */
+@keyframes cardOrangeToFront {
+  0% {
+    transform: translate(-20px, 24px) rotate(0deg);
+    z-index: 1;
+  }
+  40% {
+    transform: translate(-45px, 6px) rotate(-4deg) scale(1.03);
+    z-index: 5;
+    box-shadow: -8px 16px 28px rgba(255, 90, 60, 0.35);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 3;
+    box-shadow: 0 12px 28px rgba(255, 90, 60, 0.25);
+  }
+}
+
+@keyframes cardGreyToBack {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    z-index: 2;
+  }
+  40% {
+    transform: translate(12px, 10px) rotate(2deg) scale(0.98);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-20px, 24px) rotate(0deg) scale(1);
+    z-index: 1;
+  }
+}
+
+@keyframes cardGreyToFront {
+  0% {
+    transform: translate(-20px, 24px) rotate(0deg);
+    z-index: 1;
+  }
+  40% {
+    transform: translate(-45px, 6px) rotate(-4deg) scale(1.03);
+    z-index: 5;
+    box-shadow: -8px 16px 28px rgba(0, 0, 0, 0.18);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 3;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes cardOrangeToBack {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    z-index: 2;
+  }
+  40% {
+    transform: translate(12px, 10px) rotate(2deg) scale(0.98);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-20px, 24px) rotate(0deg) scale(1);
+    z-index: 1;
+  }
+}
+
+.c-testimonial-photo.is-swapped .c-testimonial-card--orange {
+  animation: cardOrangeToFront 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+}
+
+.c-testimonial-photo.is-swapped .c-testimonial-card--grey {
+  animation: cardGreyToBack 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+}
+
+.c-testimonial-photo.is-unswapped .c-testimonial-card--grey {
+  animation: cardGreyToFront 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+}
+
+.c-testimonial-photo.is-unswapped .c-testimonial-card--orange {
+  animation: cardOrangeToBack 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+}
+
+/* Absolute Side Slider Arrows */
+.c-testimonials__btn--prev,
+.c-testimonials__btn--next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.c-testimonials__btn--prev {
+  left: 0px;
+}
+
+.c-testimonials__btn--next {
+  right: 0px;
+}
+
+.c-testimonials__btn--prev svg,
+.c-testimonials__btn--next svg {
+  display: block;
+}
+
+.c-testimonials__btn--prev svg path,
+.c-testimonials__btn--next svg path {
+  fill: #FF5A3C;
+  transition: fill 0.25s ease;
+}
+
+/* Hover & Active state: background turns #FF5A3C, drop shadow, arrow turns white */
+.c-testimonials__btn--prev:hover,
+.c-testimonials__btn--next:hover,
+.c-testimonials__btn--prev.c-testimonials__btn--active,
+.c-testimonials__btn--next.c-testimonials__btn--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 25px rgba(255, 90, 60, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.c-testimonials__btn--prev:hover svg path,
+.c-testimonials__btn--next:hover svg path,
+.c-testimonials__btn--prev.c-testimonials__btn--active svg path,
+.c-testimonials__btn--next.c-testimonials__btn--active svg path {
+  fill: #FFFFFF !important;
+}
+
+/* Right Content */
+.c-testimonials__content {
+  padding-left: 10px;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.c-testimonials__content.is-fading {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+
+.c-testimonials__quote-icon {
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+  opacity: 0.8;
+}
+
+.c-testimonials__text {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #071C1F;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.c-testimonials__stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 26px;
+}
+
+.c-testimonials__star {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--color-star);
+  flex-shrink: 0;
+}
+
+.c-testimonials__star img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.c-testimonials__author {
+  font-size: 24px;
+  font-weight: 500;
+  color: #071C1F;
+  margin-bottom: 4px;
+}
+
+.c-testimonials__role {
+  font-size: 16px;
+  color: #6D7781;
+}

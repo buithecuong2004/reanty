@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Featured Property Section Styles (BEM)
+   Exact match to Figma: grey placeholder background with absolute bottom card
+   ========================================================================== */
+
+.c-featured {
+  padding: 100px 0 60px 0;
+  background-color: var(--color-white);
+}
+
+.c-featured__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.c-featured__header {
+  max-width: 500px;
+  text-align: left;
+  margin: 0;
+}
+
+.c-featured__header .c-section-header__title {
+  white-space: nowrap;
+}
+
+.c-featured__header .c-section-header__special-desc {
+  max-width: 330px;
+  margin: 0;
+}
+
+/* Category Filter Tabs */
+.c-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.c-category-tabs__item {
+  font-size: 18px;
+  font-weight: 500;
+  color: #899AA2;
+  cursor: pointer;
+  padding-bottom: 8px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.c-category-tabs__item:hover {
+  color: var(--color-primary);
+}
+
+.c-category-tabs__item--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-primary);
+  border-radius: 0;
+}
+
+/* Property Cards Grid */
+.c-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.c-property-card {
+  position: relative;
+  height: 440px;
+  background-color: #C4C4C4;
+  border-radius: 0;
+  overflow: visible;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.c-property-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Bottom info card overlapping */
+.c-property-card__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border-radius: 0;
+  z-index: 2;
+}
+
+.c-property-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #071C1F;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.c-property-card__location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #899AA2;
+  margin-bottom: 8px;
+}
+
+.c-property-card__location-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-body-light);
+  flex-shrink: 0;
+}
+
+.c-property-card__footer {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding-right: 76px;
+}
+
+.c-property-card__price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #071C1F;
+  line-height: 1;
+}
+
+.c-property-card--featured .c-property-card__price {
+  color: var(--color-primary);
+}
+
+/* Arrow action button at bottom right of card body */
+.c-property-card__btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 72px !important;
+  height: 44px !important;
+  min-width: 72px !important;
+  min-height: 44px !important;
+  max-width: 72px !important;
+  max-height: 44px !important;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: #C4C4C4;
+  color: #242424;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* Fallback if button is direct child of card */
+.c-property-card>.c-property-card__btn {
+  left: calc(74% - 72px);
+  right: auto;
+}
+
+.c-property-card__body .c-property-card__btn {
+  right: 0;
+  left: auto;
+}
+
+.c-property-card__btn svg {
+  display: block;
+  width: 22px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.c-property-card__btn svg path {
+  stroke: #242424;
+  transition: stroke 0.25s ease;
+}
+
+/* Hover active state: normal is inactive, hover to activate with white arrow */
+.c-property-card:hover .c-property-card__btn,
+.c-property-card__btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.c-property-card:hover .c-property-card__btn svg path,
+.c-property-card__btn:hover svg path {
+  stroke: #FFFFFF !important;
+}
+
+.c-property-card:hover .c-property-card__price {
+  color: var(--color-primary);
+}
+
+.c-featured__action {
+  text-align: center;
+}
+
+.c-featured__action .c-btn {
+  border-radius: 0;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  padding: 12px 36px;
+  font-weight: 500;
+}
+
+.c-featured__action .c-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   TOPBAR COMPONENT (BEM: .c-topbar)
+   Exact match to Figma design: dark bar with contact info & social links
+   ========================================================================== */
+
+.c-topbar {
+  background-color: #10141D;
+  color: #A0A5B5;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 13px;
+  position: relative;
+  z-index: 1002;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.c-topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+}
+
+/* Left Contact Items */
+.c-topbar__contact {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.c-topbar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #B5BAC1;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.c-topbar__item:hover {
+  color: #FFFFFF;
+}
+
+.c-topbar__icon {
+  width: 15px;
+  height: 15px;
+  color: #FF5A3C;
+  flex-shrink: 0;
+}
+
+/* Right Social Links */
+.c-topbar__socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.c-topbar__social-link {
+  color: #B5BAC1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.c-topbar__social-link:hover {
+  color: #FF5A3C;
+  transform: translateY(-1px);
+}
+
+.c-topbar__social-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}

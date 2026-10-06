@@ -1,0 +1,309 @@
+/* ==========================================================================
+   Hero Section Component Styles (BEM)
+   ========================================================================== */
+
+.c-hero {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  background-color: #F2F6F7;
+  overflow: hidden;
+}
+
+.c-hero__container {
+  position: relative;
+}
+
+.c-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* Backward compatibility for class name */
+.c-hero__grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* Left Content - centered vertically by flex align-items: center */
+.c-hero__content {
+  flex: 0 0 450px;
+  max-width: 450px;
+  position: relative;
+  z-index: 5;
+}
+
+.c-hero__title-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.c-hero__title {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.16;
+  color: var(--color-heading);
+  letter-spacing: -1px;
+}
+
+.u-nowrap {
+  white-space: nowrap;
+}
+
+.c-hero__arrow {
+  position: absolute;
+  left: 296px;
+  top: 86px;
+  width: 220px;
+  height: 128px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.c-hero__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-body);
+  max-width: 375px;
+  margin-bottom: 34px;
+}
+
+.c-hero__cta {
+  margin-bottom: 0;
+}
+
+/* Stepped House Tabs - In page padding (normal flow) */
+.c-hero__pagination {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  position: static;
+  z-index: 5;
+  height: 80px;
+}
+
+.c-house-tabs {
+  display: flex;
+  align-items: flex-end;
+  height: 80px;
+  width: 290px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Inactive: Width 88px, Height 60px, Color #9D9D9D */
+.c-house-tabs__item {
+  width: 88px;
+  height: 60px;
+  padding: 8px 10px;
+  font-family: 'Poppins', var(--font-primary);
+  font-size: 10px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background-color: #9D9D9D;
+  cursor: pointer;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  box-sizing: border-box;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Active: Width 114px, Height 80px, Color #9D9D9D */
+.c-house-tabs__item--active {
+  width: 114px;
+  height: 80px;
+  background-color: #9D9D9D;
+}
+
+.c-house-tabs__indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  height: 80px;
+  padding-bottom: 6px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.c-house-tabs__progress {
+  width: 68px;
+  height: 2px;
+  background-color: #E8ECF2;
+  position: relative;
+  border-radius: 1px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.c-house-tabs__bar {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 24px;
+  height: 3px;
+  background-color: #071C1F;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.c-house-tabs__numbers {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 20px;
+}
+
+/* Inactive Number: Poppins 500, Size 10px, Line-height 100%, Letter-spacing -1%, Color #627193, Opacity 80% */
+.c-house-tabs__number {
+  font-family: 'Poppins', var(--font-primary);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #627193;
+  opacity: 0.8;
+  cursor: pointer;
+  width: 14px;
+  height: 20px;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform: scale(0.5);
+  transform-origin: bottom center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Active Number: Poppins 500, Size 20px, Line-height 100%, Letter-spacing -1%, Color #071C1F, Opacity 100% */
+.c-house-tabs__number--active {
+  color: #071C1F;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Right Media */
+.c-hero__media {
+  flex: 1 1 0%;
+  min-width: 0;
+  position: relative;
+}
+
+.c-hero__image-box {
+  width: 100%;
+  height: 560px;
+  border-radius: 0;
+  background-color: #C4C4C4;
+  position: relative;
+}
+
+/* Floating Revenue Card */
+.c-floating-card {
+  width: 215px;
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  background-color: var(--color-white);
+  padding: 22px 28px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(22, 28, 45, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 3;
+}
+
+.c-floating-card__icon {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.c-floating-card__icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.c-floating-card__stat {
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.c-floating-card__label {
+  font-size: 13px;
+  color: var(--color-body);
+}
+
+/* Floating How It Works Button */
+.c-how-works {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 16px 26px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 3;
+}
+
+.c-how-works:hover {
+  background-color: var(--color-primary-hover);
+  padding-right: 30px;
+}
+
+.c-how-works__play {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.c-how-works:hover .c-how-works__play {
+  transform: scale(1.1);
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}

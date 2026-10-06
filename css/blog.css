@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Blog Section Component Styles (BEM)
+   Exact match to Figma: grey placeholder top block and 0 border-radius
+   ========================================================================== */
+
+.c-blog {
+  padding: 100px 0;
+  background-color: var(--color-white);
+}
+
+.c-blog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.c-blog-card {
+  background-color: var(--color-white);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.c-blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.c-blog-card__image-box {
+  width: 100%;
+  height: 260px;
+  background-color: #C4C4C4;
+  border-radius: 0;
+}
+
+.c-blog-card__body {
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.c-blog-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #242424;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  transition: color 0.35s ease 0.12s;
+}
+
+.c-blog-card:hover .c-blog-card__title {
+  color: var(--color-primary);
+}
+
+.c-blog-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.c-blog-card__tag-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.c-blog-card__snippet {
+  font-size: 16px;
+  color: #8C8C8C;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.c-blog-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border-light);
+  font-size: 13px;
+  color: var(--color-body);
+}
+
+.c-blog-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.c-blog-card__meta-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-body-light);
+}
+
+.c-blog-card__author-highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.c-blog__action {
+  text-align: center;
+}
+
+.c-blog__action .c-btn {
+  border-radius: 0;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  padding: 12px 36px;
+  font-weight: 500;
+}
+
+.c-blog__action .c-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

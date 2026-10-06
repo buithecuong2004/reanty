@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Services Section Component Styles (BEM)
+   ========================================================================== */
+
+.c-services {
+  padding: 100px 0;
+  background-color: #F8FAFD;
+}
+
+.c-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* 3D Flip Card Container */
+.c-service-card {
+  perspective: 1200px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  height: 380px;
+}
+
+.c-service-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-xl);
+}
+
+.c-service-card:hover .c-service-card__inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Faces */
+.c-service-card__front,
+.c-service-card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  box-sizing: border-box;
+}
+
+/* Front Face Styling */
+.c-service-card__front {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transform: rotateY(0deg);
+  z-index: 2;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.c-service-card:hover .c-service-card__front {
+  border-color: rgba(255, 90, 60, 0.3);
+  box-shadow: 0 20px 45px rgba(255, 90, 60, 0.12);
+}
+
+.c-service-card__icon-box,
+.c-service-card__icon-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  box-shadow: 0 16px 45px -12px rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.c-service-card__icon-box svg,
+.c-service-card__icon-wrap svg {
+  display: block;
+}
+
+.c-service-card:hover .c-service-card__icon-box,
+.c-service-card:hover .c-service-card__icon-wrap {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.14);
+}
+
+.c-service-card__title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #071C1F;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.c-service-card__desc {
+  font-size: 16px;
+  color: #8C8C8C;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.c-service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-heading);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.c-service-card__link > span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #071C1F;
+  transition: color 0.3s ease;
+}
+
+.c-service-card__link-arrow {
+  transition: transform 0.25s ease;
+}
+
+.c-service-card:hover .c-service-card__link,
+.c-service-card:hover .c-service-card__link > span {
+  color: var(--color-primary);
+}
+
+.c-service-card:hover .c-service-card__link-arrow {
+  transform: translateX(5px);
+}
+
+/* Back Face Styling */
+.c-service-card__back {
+  background: linear-gradient(145deg, #FF5A3C 0%, #FF3A1A 100%);
+  color: #FFFFFF;
+  transform: rotateY(180deg);
+  box-shadow: 0 20px 45px rgba(255, 90, 60, 0.32);
+  border: 1px solid #FF5A3C;
+  z-index: 1;
+}
+
+.c-service-card:hover .c-service-card__back {
+  box-shadow: 0 24px 50px rgba(255, 90, 60, 0.42);
+}
+
+.c-service-card__back-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FF5A3C;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.c-service-card__back-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.c-service-card__back-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-service-card__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: #FFFFFF;
+  color: #FF5A3C;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.c-service-card__back-btn:hover {
+  background-color: #071C1F;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
