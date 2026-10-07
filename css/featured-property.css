@@ -84,17 +84,26 @@
   transform: translateY(-6px);
 }
 
-/* Bottom info card overlapping */
+/* Bottom info card overlapping (Figma: 270x138 on desktop, 100% width on responsive) */
 .c-property-card__body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 270px;
+  height: 138px;
   padding: 20px 20px 0 20px;
   background-color: var(--color-white);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   border-radius: 0;
   z-index: 2;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 900px) {
+  .c-property-card__body {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .c-property-card__title {
@@ -133,10 +142,6 @@
   font-weight: 600;
   color: #071C1F;
   line-height: 1;
-}
-
-.c-property-card--featured .c-property-card__price {
-  color: var(--color-primary);
 }
 
 /* Arrow action button at bottom right of card body */

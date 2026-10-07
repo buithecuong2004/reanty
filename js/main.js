@@ -32,15 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openNav() {
-      const headerBottom = header.getBoundingClientRect().bottom;
-      nav.style.top = `${headerBottom}px`;
-      nav.style.height = `calc(100vh - ${headerBottom}px)`;
+      header.classList.add('c-header--nav-open');
+      const headerHeight = header.offsetHeight || 84;
+      nav.style.top = `${headerHeight}px`;
+      nav.style.height = `calc(100vh - ${headerHeight}px)`;
       toggleBtn.classList.add('c-header__toggle--active');
       nav.classList.add('c-nav--open');
       setScrollLock(true);
     }
 
     let closeNav = function () {
+      header.classList.remove('c-header--nav-open');
       toggleBtn.classList.remove('c-header__toggle--active');
       nav.classList.remove('c-nav--open');
       setScrollLock(false);
@@ -158,7 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Close mobile nav drawer if open
       const navEl = document.querySelector('.c-nav');
       const toggleEl = document.querySelector('.c-header__toggle');
+      const headerEl = document.querySelector('.c-header');
       if (navEl && navEl.classList.contains('c-nav--open')) {
+        headerEl?.classList.remove('c-header--nav-open');
         toggleEl?.classList.remove('c-header__toggle--active');
         navEl.classList.remove('c-nav--open');
         document.documentElement.style.overflow = '';
@@ -171,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setActiveNav(targetId);
 
       // Compute target scroll position with sticky header offset
-      const headerEl = document.querySelector('.c-header');
       const headerHeight = headerEl ? headerEl.offsetHeight : 84;
       const targetTop = targetId === 'hero'
         ? 0
@@ -419,8 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
         updateTestimonial(currentTestimonialIndex);
-        prevBtn.classList.add('c-testimonials__btn--active');
-        nextBtn.classList.remove('c-testimonials__btn--active');
+        prevBtn.blur();
 
         setTimeout(() => {
           isSliderTransitioning = false;
@@ -433,8 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
         updateTestimonial(currentTestimonialIndex);
-        nextBtn.classList.add('c-testimonials__btn--active');
-        prevBtn.classList.remove('c-testimonials__btn--active');
+        nextBtn.blur();
 
         setTimeout(() => {
           isSliderTransitioning = false;

@@ -61,7 +61,6 @@
 .c-service-card__front {
   background-color: var(--color-white);
   border: 1px solid var(--color-border-light);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   transform: rotateY(0deg);
   z-index: 2;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -127,7 +126,7 @@
   text-decoration: none;
 }
 
-.c-service-card__link > span {
+.c-service-card__link>span {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
@@ -140,7 +139,7 @@
 }
 
 .c-service-card:hover .c-service-card__link,
-.c-service-card:hover .c-service-card__link > span {
+.c-service-card:hover .c-service-card__link>span {
   color: var(--color-primary);
 }
 

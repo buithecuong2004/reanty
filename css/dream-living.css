@@ -108,11 +108,13 @@
   letter-spacing: -0.8px;
 }
 
-.c-dream-living__desc {
+.c-dream-living__desc,
+.c-dream-living__content .c-section-header__special-desc {
   font-size: 16px;
   line-height: 1.75;
   color: var(--color-body);
   margin-bottom: 30px;
+  max-width: 492px;
 }
 
 .c-dream-living__features {
@@ -125,12 +127,14 @@
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 20px 10px;
   border-radius: 4px;
   transition: var(--transition);
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  max-width: 492px;
+  width: 100%;
 }
 
 .c-feature-item:hover,
@@ -170,7 +174,8 @@
 }
 
 .c-feature-item__desc {
-  width: 400px;
+  width: 90%;
+  max-width: 100%;
   font-size: 16px;
   color: #899AA2;
   line-height: 1.55;

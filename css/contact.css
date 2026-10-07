@@ -148,9 +148,10 @@
 }
 
 .c-contact-card__title {
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 48px;
+  font-weight: 500;
   color: #242424;
+  line-height: 1.33;
   margin-bottom: 24px;
   letter-spacing: -0.5px;
 }

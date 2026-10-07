@@ -72,13 +72,10 @@ body.has-scroll-anim .reveal.is-revealed:hover {
   }
 }
 
-/* Explicit Exclusion: Header, Topbar, and Footer must NEVER be hidden or animated */
-.c-topbar,
-.c-topbar *,
-.c-header,
-.c-header *,
-.c-footer,
-.c-footer * {
+/* Explicit Exclusion: Header, Topbar, and Footer must NEVER be affected by scroll reveal */
+.c-topbar.reveal,
+.c-header.reveal,
+.c-footer.reveal {
   opacity: 1 !important;
   transform: none !important;
 }

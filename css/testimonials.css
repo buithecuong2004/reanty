@@ -103,11 +103,13 @@
     transform: translate(-20px, 24px) rotate(0deg);
     z-index: 1;
   }
+
   40% {
     transform: translate(-45px, 6px) rotate(-4deg) scale(1.03);
     z-index: 5;
     box-shadow: -8px 16px 28px rgba(255, 90, 60, 0.35);
   }
+
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
     z-index: 3;
@@ -120,10 +122,12 @@
     transform: translate(0, 0) rotate(0deg);
     z-index: 2;
   }
+
   40% {
     transform: translate(12px, 10px) rotate(2deg) scale(0.98);
     z-index: 1;
   }
+
   100% {
     transform: translate(-20px, 24px) rotate(0deg) scale(1);
     z-index: 1;
@@ -135,11 +139,13 @@
     transform: translate(-20px, 24px) rotate(0deg);
     z-index: 1;
   }
+
   40% {
     transform: translate(-45px, 6px) rotate(-4deg) scale(1.03);
     z-index: 5;
     box-shadow: -8px 16px 28px rgba(0, 0, 0, 0.18);
   }
+
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
     z-index: 3;
@@ -152,12 +158,75 @@
     transform: translate(0, 0) rotate(0deg);
     z-index: 2;
   }
+
   40% {
     transform: translate(12px, 10px) rotate(2deg) scale(0.98);
     z-index: 1;
   }
+
   100% {
     transform: translate(-20px, 24px) rotate(0deg) scale(1);
+    z-index: 1;
+  }
+}
+
+/* Card swap keyframes for mobile/tablet */
+@keyframes cardOrangeToFrontMobile {
+  0% {
+    transform: translate(-10px, 12px) rotate(0deg);
+    z-index: 1;
+  }
+  40% {
+    transform: translate(-14px, 4px) rotate(-2deg) scale(1.02);
+    z-index: 5;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 3;
+  }
+}
+
+@keyframes cardGreyToBackMobile {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 2;
+  }
+  40% {
+    transform: translate(6px, 8px) rotate(1deg) scale(0.98);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-10px, 12px) rotate(0deg) scale(1);
+    z-index: 1;
+  }
+}
+
+@keyframes cardGreyToFrontMobile {
+  0% {
+    transform: translate(-10px, 12px) rotate(0deg);
+    z-index: 1;
+  }
+  40% {
+    transform: translate(-14px, 4px) rotate(-2deg) scale(1.02);
+    z-index: 5;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 2;
+  }
+}
+
+@keyframes cardOrangeToBackMobile {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    z-index: 3;
+  }
+  40% {
+    transform: translate(6px, 8px) rotate(1deg) scale(0.98);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-10px, 12px) rotate(0deg) scale(1);
     z-index: 1;
   }
 }
@@ -196,7 +265,9 @@
   cursor: pointer;
   z-index: 10;
   box-shadow: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .c-testimonials__btn--prev {
@@ -210,6 +281,7 @@
 .c-testimonials__btn--prev svg,
 .c-testimonials__btn--next svg {
   display: block;
+  pointer-events: none;
 }
 
 .c-testimonials__btn--prev svg path,
@@ -218,22 +290,54 @@
   transition: fill 0.25s ease;
 }
 
-/* Hover & Active state: background turns #FF5A3C, drop shadow, arrow turns white */
-.c-testimonials__btn--prev:hover,
-.c-testimonials__btn--next:hover,
-.c-testimonials__btn--prev.c-testimonials__btn--active,
-.c-testimonials__btn--next.c-testimonials__btn--active {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  box-shadow: 0 10px 25px rgba(255, 90, 60, 0.4);
-  transform: translateY(-50%) scale(1.05);
+/* Hover state: ONLY when mouse is truly hovering */
+@media (hover: hover) and (pointer: fine) {
+  .c-testimonials__btn--prev:hover,
+  .c-testimonials__btn--next:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .c-testimonials__btn--prev:hover svg path,
+  .c-testimonials__btn--next:hover svg path {
+    fill: #FFFFFF !important;
+  }
 }
 
-.c-testimonials__btn--prev:hover svg path,
-.c-testimonials__btn--next:hover svg path,
-.c-testimonials__btn--prev.c-testimonials__btn--active svg path,
-.c-testimonials__btn--next.c-testimonials__btn--active svg path {
-  fill: #FFFFFF !important;
+/* Ensure :focus and :active never retain orange active styling after click */
+.c-testimonials__btn--prev:focus,
+.c-testimonials__btn--next:focus,
+.c-testimonials__btn--prev:active,
+.c-testimonials__btn--next:active {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (hover: none) {
+  .c-testimonials__btn--prev,
+  .c-testimonials__btn--next,
+  .c-testimonials__btn--prev:hover,
+  .c-testimonials__btn--next:hover,
+  .c-testimonials__btn--prev:focus,
+  .c-testimonials__btn--next:focus,
+  .c-testimonials__btn--prev:active,
+  .c-testimonials__btn--next:active {
+    background-color: var(--color-white) !important;
+    border-color: var(--color-primary) !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .c-testimonials__btn--prev svg path,
+  .c-testimonials__btn--next svg path,
+  .c-testimonials__btn--prev:hover svg path,
+  .c-testimonials__btn--next:hover svg path,
+  .c-testimonials__btn--prev:focus svg path,
+  .c-testimonials__btn--next:focus svg path,
+  .c-testimonials__btn--prev:active svg path,
+  .c-testimonials__btn--next:active svg path {
+    fill: #FF5A3C !important;
+  }
 }
 
 /* Right Content */

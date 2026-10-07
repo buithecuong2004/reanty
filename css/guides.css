@@ -43,9 +43,9 @@ body.has-scroll-anim .c-guides__grid .c-guide-card {
   position: relative;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-              box-shadow 0.4s ease,
-              background-color 0.4s ease,
-              border-color 0.4s ease;
+    box-shadow 0.4s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease;
 }
 
 /* Unified Hover State on Card */
@@ -56,7 +56,6 @@ body.has-scroll-anim .c-guides__grid .c-guide-card--highlighted {
   transform: translateY(-8px);
   background-color: #FF5A3C;
   border-color: #FF5A3C;
-  box-shadow: 0 20px 45px rgba(255, 90, 60, 0.28);
 }
 
 /* Icon Box with organic SVG shape */

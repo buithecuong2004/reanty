@@ -13,6 +13,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+body.u-no-scroll .c-topbar {
+  display: none !important;
+}
+
 .c-topbar__inner {
   display: flex;
   align-items: center;
@@ -73,4 +77,9 @@
   width: 14px;
   height: 14px;
   fill: currentColor;
+}
+
+.c-topbar__social-icon path {
+  fill: currentColor;
+  transition: fill 0.2s ease;
 }

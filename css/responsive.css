@@ -560,6 +560,11 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .c-property-card__body {
+    width: 100%;
+    height: auto;
+  }
+
   .c-category-tabs__item {
     font-size: 16px;
     padding-bottom: 6px;
@@ -567,29 +572,92 @@
 
   /* Testimonials */
   .c-testimonials {
-    padding: 70px 0;
+    padding: 60px 0;
   }
 
   .c-testimonials__wrap {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 36px;
+    padding: 0 16px;
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .c-testimonials__media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .c-testimonial-photo {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 16px auto;
+    position: relative;
+    transform: translateX(6px);
+  }
+
+  .c-testimonial-card--orange,
+  .c-testimonial-photo__bg-offset {
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    transform: translate(-12px, 14px);
+  }
+
+  .c-testimonial-photo__img-box,
+  .c-testimonial-card--grey {
+    border-radius: 10px;
+  }
+
+  .c-testimonials__btn--prev,
+  .c-testimonials__btn--next {
+    top: 125px;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    z-index: 15;
   }
 
   .c-testimonials__btn--prev {
-    left: 20px;
-    top: 190px;
-    transform: translateY(-50%);
+    left: calc(50% - 172px);
   }
 
   .c-testimonials__btn--next {
-    right: 20px;
-    top: 190px;
-    transform: translateY(-50%);
+    right: calc(50% - 172px);
+  }
+
+  /* Responsive Swap Animations so card never swings into buttons */
+  .c-testimonial-photo.is-swapped .c-testimonial-card--orange {
+    animation: cardOrangeToFrontMobile 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+  }
+
+  .c-testimonial-photo.is-swapped .c-testimonial-card--grey {
+    animation: cardGreyToBackMobile 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+  }
+
+  .c-testimonial-photo.is-unswapped .c-testimonial-card--grey {
+    animation: cardGreyToFrontMobile 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+  }
+
+  .c-testimonial-photo.is-unswapped .c-testimonial-card--orange {
+    animation: cardOrangeToBackMobile 0.65s cubic-bezier(0.25, 1, 0.35, 1) forwards;
   }
 
   .c-testimonials__content {
     padding-left: 0;
     text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .c-testimonials__quote-icon {
+    margin: 0 auto 16px auto;
   }
 
   .c-testimonials__stars {
@@ -960,6 +1028,11 @@
   }
 
   /* Featured */
+  .c-featured__header .c-section-header__special-desc {
+    white-space: normal !important;
+    max-width: 320px !important;
+  }
+
   .c-featured__grid {
     grid-template-columns: 1fr;
   }
@@ -979,46 +1052,57 @@
   }
 
   /* Testimonials */
+  .c-testimonials__wrap {
+    padding: 0 10px;
+    gap: 24px;
+    max-width: 100%;
+  }
+
   .c-testimonial-photo {
-    width: 210px;
-    height: 260px;
-    margin-bottom: 20px;
+    width: 160px;
+    height: 210px;
+    margin: 0 auto 14px auto;
+    transform: translateX(5px);
   }
 
+  .c-testimonial-card--orange,
   .c-testimonial-photo__bg-offset {
-    top: 16px;
-    left: -14px;
+    top: 0;
+    left: 0;
     border-radius: 10px;
+    transform: translate(-10px, 12px);
   }
 
-  .c-testimonial-photo__img-box {
+  .c-testimonial-photo__img-box,
+  .c-testimonial-card--grey {
     border-radius: 10px;
   }
 
   .c-testimonials__btn--prev,
   .c-testimonials__btn--next {
-    top: 130px;
+    top: 105px;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .c-testimonials__btn--prev {
-    left: max(8px, calc(50% - 175px));
+    left: calc(50% - 139px);
   }
 
   .c-testimonials__btn--next {
-    right: max(8px, calc(50% - 175px));
+    right: calc(50% - 139px);
   }
 
   .c-testimonials__btn--prev svg,
   .c-testimonials__btn--next svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 
   .c-testimonials__text {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   /* Projects */
@@ -1073,7 +1157,8 @@
 
   .c-footer__desc {
     font-size: 15px;
-    max-width: 100%;
+    white-space: normal;
+    max-width: 320px;
     margin-bottom: 20px;
   }
 
