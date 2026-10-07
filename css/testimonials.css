@@ -37,12 +37,12 @@
 .c-testimonials__wrap {
   position: relative;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 373px 1fr;
   align-items: center;
   gap: 52px;
   max-width: 1060px;
   margin: 0 auto;
-  padding: 0 130px;
+  padding: 0 80px;
 }
 
 /* Left Photo Frame with Orange Offset and Grey Box */
@@ -54,8 +54,8 @@
 
 .c-testimonial-photo {
   position: relative;
-  width: 320px;
-  height: 380px;
+  width: 373px;
+  height: 436px;
   margin-bottom: 24px;
 }
 

@@ -146,10 +146,10 @@
 
   /* Testimonials */
   .c-testimonials__wrap {
-    grid-template-columns: 320px 1fr;
-    gap: 48px;
+    grid-template-columns: 373px 1fr;
+    gap: 40px;
     max-width: 1060px;
-    padding: 0 120px;
+    padding: 0 70px;
   }
 
   .c-testimonials__btn--prev {
