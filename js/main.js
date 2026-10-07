@@ -3,51 +3,52 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggle
+  // 1. Mobile Menu Toggle & Scroll Lock
   const toggleBtn = document.querySelector('.c-header__toggle');
   const nav = document.querySelector('.c-nav');
   const header = document.querySelector('.c-header');
 
+  function preventTouchScroll(e) {
+    if (!nav || !nav.contains(e.target)) {
+      e.preventDefault();
+    }
+  }
+
+  function setScrollLock(locked) {
+    if (locked) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.documentElement.classList.add('u-no-scroll');
+      document.body.classList.add('u-no-scroll');
+      document.addEventListener('touchmove', preventTouchScroll, { passive: false });
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.documentElement.classList.remove('u-no-scroll');
+      document.body.classList.remove('u-no-scroll');
+      document.removeEventListener('touchmove', preventTouchScroll);
+    }
+  }
+
+  function openNav() {
+    if (!header || !nav || !toggleBtn) return;
+    header.classList.add('c-header--nav-open');
+    const headerHeight = header.offsetHeight || 84;
+    nav.style.top = `${headerHeight}px`;
+    nav.style.height = `calc(100vh - ${headerHeight}px)`;
+    toggleBtn.classList.add('c-header__toggle--active');
+    nav.classList.add('c-nav--open');
+    setScrollLock(true);
+  }
+
+  function closeNav() {
+    if (header) header.classList.remove('c-header--nav-open');
+    if (toggleBtn) toggleBtn.classList.remove('c-header__toggle--active');
+    if (nav) nav.classList.remove('c-nav--open');
+    setScrollLock(false);
+  }
+
   if (toggleBtn && nav && header) {
-    function preventTouchScroll(e) {
-      if (!nav.contains(e.target)) {
-        e.preventDefault();
-      }
-    }
-
-    function setScrollLock(locked) {
-      if (locked) {
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        document.documentElement.classList.add('u-no-scroll');
-        document.body.classList.add('u-no-scroll');
-        document.addEventListener('touchmove', preventTouchScroll, { passive: false });
-      } else {
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        document.documentElement.classList.remove('u-no-scroll');
-        document.body.classList.remove('u-no-scroll');
-        document.removeEventListener('touchmove', preventTouchScroll);
-      }
-    }
-
-    function openNav() {
-      header.classList.add('c-header--nav-open');
-      const headerHeight = header.offsetHeight || 84;
-      nav.style.top = `${headerHeight}px`;
-      nav.style.height = `calc(100vh - ${headerHeight}px)`;
-      toggleBtn.classList.add('c-header__toggle--active');
-      nav.classList.add('c-nav--open');
-      setScrollLock(true);
-    }
-
-    let closeNav = function () {
-      header.classList.remove('c-header--nav-open');
-      toggleBtn.classList.remove('c-header__toggle--active');
-      nav.classList.remove('c-nav--open');
-      setScrollLock(false);
-    };
-
     toggleBtn.addEventListener('click', () => {
       if (nav.classList.contains('c-nav--open')) {
         closeNav();
@@ -150,6 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       const targetId = href.replace('#', '');
+
+      // Close mobile nav drawer if open
+      if (nav && nav.classList.contains('c-nav--open')) {
+        closeNav();
+      }
+
       if (!targetId || targetId === 'login' || targetId === 'signup') return;
 
       const targetEl = document.getElementById(targetId);
@@ -157,25 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       e.preventDefault();
 
-      // Close mobile nav drawer if open
-      const navEl = document.querySelector('.c-nav');
-      const toggleEl = document.querySelector('.c-header__toggle');
-      const headerEl = document.querySelector('.c-header');
-      if (navEl && navEl.classList.contains('c-nav--open')) {
-        headerEl?.classList.remove('c-header--nav-open');
-        toggleEl?.classList.remove('c-header__toggle--active');
-        navEl.classList.remove('c-nav--open');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        document.documentElement.classList.remove('u-no-scroll');
-        document.body.classList.remove('u-no-scroll');
-      }
-
       // Immediately activate header menu item
       setActiveNav(targetId);
 
       // Compute target scroll position with sticky header offset
-      const headerHeight = headerEl ? headerEl.offsetHeight : 84;
+      const headerHeight = header ? header.offsetHeight : 84;
       const targetTop = targetId === 'hero'
         ? 0
         : Math.max(0, targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight + 2);
