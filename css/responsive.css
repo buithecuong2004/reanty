@@ -570,6 +570,11 @@
     padding-bottom: 6px;
   }
 
+  /* Promo Unit */
+  .c-promo-card {
+    left: 0;
+  }
+
   /* Testimonials */
   .c-testimonials {
     padding: 60px 0;
@@ -1050,6 +1055,8 @@
   }
 
   .c-promo-card {
+    position: relative;
+    left: 0;
     height: auto;
     flex-direction: column;
     text-align: center;

@@ -51,6 +51,8 @@
 
 /* Central Card */
 .c-promo-card {
+  position: relative;
+  left: -80px;
   background-color: var(--color-white);
   border-radius: 20px;
   padding: 16px 20px;
