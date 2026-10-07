@@ -1180,22 +1180,51 @@
   }
 
   .c-projects__newsletter {
-    height: auto;
-    padding: 16px;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 36px;
+    height: 58px;
+    padding: 6px 6px 6px 14px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .c-projects__newsletter-field {
-    width: 100%;
-    height: 48px;
-    padding-left: 6px;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .c-projects__newsletter-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .c-projects__newsletter-input {
+    flex: 1;
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  .c-projects__newsletter-input::placeholder {
+    font-size: 13px;
   }
 
   .c-projects__newsletter-btn {
-    width: 100%;
-    height: 50px;
+    width: auto;
+    padding: 0 16px;
+    height: 46px;
+    font-size: 13px;
+    flex-shrink: 0;
+    border-radius: 10px;
   }
 
 
