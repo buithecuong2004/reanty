@@ -149,7 +149,7 @@
     grid-template-columns: 373px 1fr;
     gap: 40px;
     max-width: 1060px;
-    padding: 0 70px;
+    padding: 0 60px 0 110px;
   }
 
   .c-testimonials__btn--prev {
